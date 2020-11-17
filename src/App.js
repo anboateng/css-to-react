@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter, Switch, Route,} from 'react-router-dom'
+import Basics from './components/Basics';
+import Types from './components/Types';
+import Safety from './components/Safety';
+import Equipment from './components/Equipment';
+import Where from './components/Where';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Navigation from './components/Navigation';
 
-function App() {
+function App ()
+{
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="wrapper">
+      <Header/>
+      <BrowserRouter>
+      <div>
+        <Navigation/>
+      <Switch>
+        <Route exact path="/" component={Basics} />
+        <Route path="/Types" component={Types} />
+        <Route path="/Safety" component={Safety} />
+        <Route path="/Equipment" component={Equipment} />
+        <Route path="/Where" component={Where} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+  <Footer/>
     </div>
   );
-}
+
+};
+
 
 export default App;
+
+
+
+
+ 
